@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace NomeAPI {
     public class Startup {
@@ -21,6 +22,19 @@ namespace NomeAPI {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+
+            //Middlewares
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new Info { Title = "Nome Da API", Version = "v1" });
+            });
+            services.AddCors(options => {
+                options.AddPolicy("PermissionamentoReact",
+                    builder => builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader()
+                                    .AllowAnyOrigin());
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -32,6 +46,13 @@ namespace NomeAPI {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors("PermissionamentoReact");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();
