@@ -9,7 +9,7 @@ namespace Comunicacao.ConexaoBanco {
     public class LeitorArquivos {
 
         public static string CarregarArquivoSQL(string nomeArquivo) {
-            string DiretorioArquivosBuild = Directory.GetCurrentDirectory() + "\\ConexaoBanco\\SQL\\";
+            string DiretorioArquivosBuild = Directory.GetParent(Directory.GetCurrentDirectory()).FullName + "\\ConexaoBanco\\";
             string arquivoLeitura = DiretorioArquivosBuild + nomeArquivo + ".sql";
             string conteudoArquivo = string.Empty;
             string[] linhas;

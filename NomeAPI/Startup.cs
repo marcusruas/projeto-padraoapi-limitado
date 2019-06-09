@@ -24,6 +24,7 @@ namespace NomeAPI {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             //Injeções de dependência
+            IoCComunicacao.ConfigurarComunicacao(services);
             IoCRepositorio.ConfigurarRepositorio(services);
             IoCServico.ConfigurarServico(services);
 
