@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "NomeAPI\Api.csproj", "{0C9716A8-DEEA-43A7-B092-40DE64ABBB2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F15C574D-B22D-453F-875B-F2C4D997AF53} = {F15C574D-B22D-453F-875B-F2C4D997AF53}
+		{6106AE9B-A0F9-49E1-B002-F955E9B019EA} = {6106AE9B-A0F9-49E1-B002-F955E9B019EA}
+		{2A6890A8-936F-4A0E-B8B7-DE2DD1012B27} = {2A6890A8-936F-4A0E-B8B7-DE2DD1012B27}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{868ACF18-075F-4BE0-9B5F-D204E985C2E3}"
 EndProject
@@ -15,8 +20,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servico", "Servico\Servico.csproj", "{6106AE9B-A0F9-49E1-B002-F955E9B019EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comunicacao", "Comunicacao\Comunicacao.csproj", "{2A6890A8-936F-4A0E-B8B7-DE2DD1012B27}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC", "IoC\IoC.csproj", "{66000422-A627-432C-B5CE-D1C44DCC2F6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,10 +47,6 @@ Global
 		{2A6890A8-936F-4A0E-B8B7-DE2DD1012B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A6890A8-936F-4A0E-B8B7-DE2DD1012B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A6890A8-936F-4A0E-B8B7-DE2DD1012B27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66000422-A627-432C-B5CE-D1C44DCC2F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66000422-A627-432C-B5CE-D1C44DCC2F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66000422-A627-432C-B5CE-D1C44DCC2F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66000422-A627-432C-B5CE-D1C44DCC2F6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
