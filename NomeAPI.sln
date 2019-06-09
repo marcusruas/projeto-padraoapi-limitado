@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "NomeAPI\Api.csproj", "{0C9716A8-DEEA-43A7-B092-40DE64ABBB2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{0C9716A8-DEEA-43A7-B092-40DE64ABBB2B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{868ACF18-075F-4BE0-9B5F-D204E985C2E3} = {868ACF18-075F-4BE0-9B5F-D204E985C2E3}
 		{F15C574D-B22D-453F-875B-F2C4D997AF53} = {F15C574D-B22D-453F-875B-F2C4D997AF53}
