@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,10 @@ namespace NomeAPI {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+
+            //Injeções de dependência
+            IoCRepositorio.ConfigurarRepositorio(services);
+            IoCServico.ConfigurarServico(services);
 
             //Middlewares
             services.AddSwaggerGen(c => {
