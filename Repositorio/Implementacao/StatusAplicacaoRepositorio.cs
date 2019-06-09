@@ -1,4 +1,5 @@
-﻿using Repositorio.Interface;
+﻿using Comunicacao.ConexaoBanco;
+using Repositorio.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
