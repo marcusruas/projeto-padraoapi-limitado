@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Comunicacao.Configuracao;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

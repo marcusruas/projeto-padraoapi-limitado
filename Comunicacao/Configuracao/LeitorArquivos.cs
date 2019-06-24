@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-namespace Comunicacao.ConexaoBanco {
+namespace Comunicacao.Configuracao {
     public class LeitorArquivos {
         private static string DiretorioArquivosBuild = Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName;
 
