@@ -4,20 +4,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 
 namespace Comunicacao.ConexaoBanco {
     public class LeitorArquivos {
+        private static string DiretorioArquivosBuild = Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName;
 
         public static string CarregarArquivoSQL(string nomeArquivo) {
-            string DiretorioArquivosBuild = Directory.GetParent(Directory.GetCurrentDirectory()).FullName + "\\ConexaoBanco\\";
-            string arquivoLeitura = DiretorioArquivosBuild + nomeArquivo + ".sql";
+            string pathArquivo = Path.Combine(DiretorioArquivosBuild, "ConexaoBanco", "SQL", $"{nomeArquivo}.sql");
             string conteudoArquivo = string.Empty;
             string[] linhas;
 
-            if (!File.Exists(arquivoLeitura))
+            if (!File.Exists(pathArquivo))
                 throw new Exception("Não foi possível localizar o arquivo de consulta ao banco com este nome.");
             try {
-                linhas = File.ReadAllLines(arquivoLeitura);
+                linhas = File.ReadAllLines(pathArquivo);
                 foreach (string linha in linhas)
                     conteudoArquivo += (linha + " ");
             } catch (ArgumentNullException) {
@@ -27,18 +28,16 @@ namespace Comunicacao.ConexaoBanco {
         }
 
         public static string ObterStringBanco(string nomeBanco) {
+            string conexoes = Path.Combine(DiretorioArquivosBuild, "conexoes.json");
             try {
-                string DiretorioConexoesBuild = Directory.GetCurrentDirectory() + "\\ConexaoBanco\\conexoes.json";
-                using (StreamReader r = new StreamReader(DiretorioConexoesBuild)) {
+                using (StreamReader r = new StreamReader(conexoes)) {
                     var json = r.ReadToEnd();
-                    var conexoes = JsonConvert.DeserializeObject<string>(json);
+                    var conexao = JsonConvert.DeserializeObject<object>(json);
                     return json;
                 }
-            }catch(Exception e) {
-
+            }catch(Exception) {
+                throw new Exception("Não foi possível realizar a conexão ao banco de dados.");
             }
-
-            return string.Empty;
         }
     }
 }

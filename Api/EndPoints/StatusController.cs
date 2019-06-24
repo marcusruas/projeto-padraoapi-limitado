@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PadraoAPI.EndPoints {
     [ApiController]
-    [Route("[controller]/")]
+    [Route("/")]
     public class StatusController : Controller {
         private IStatusServico _servico;
         public StatusController(IStatusServico servico) {
@@ -15,7 +15,7 @@ namespace PadraoAPI.EndPoints {
         }
 
         [HttpGet]
-        [Route("[action]")]
+        [Route("/")]
         public Dictionary<string, string> StatusBanco() {
             Dictionary<string, string> retorno = new Dictionary<string, string>();
             retorno.Add("Banco:", _servico.VerificarStatusBanco());
