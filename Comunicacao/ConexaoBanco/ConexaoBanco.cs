@@ -12,12 +12,12 @@ namespace Comunicacao.ConexaoBanco {
         private SqlConnection Conexao;
         private SqlTransaction Transacao;
 
-        private void IniciarConexao(string nomeBanco) {
+        public void IniciarConexao(string nomeBanco) {
             Conexao = new SqlConnection(LeitorArquivos.ObterStringBanco(nomeBanco));
             Conexao.Open();
         }
 
-        private void FecharConexao() {
+        public void FecharConexao() {
             Conexao.Close();
         }
 
@@ -62,6 +62,10 @@ namespace Comunicacao.ConexaoBanco {
             } catch (Exception e) {
                 throw e;
             }
+            finally
+            {
+                FecharConexao();
+            }
         }
 
         public T SelectUmaLinha<T>(string nomeArquivo, string nomeBanco)
@@ -83,18 +87,26 @@ namespace Comunicacao.ConexaoBanco {
             {
                 throw e;
             }
+            finally
+            {
+                FecharConexao();
+            }
         }
 
-        public bool Executar<T>(string nomeArquivo, string nomeBanco, T modelo) {
+        public int Executar<T>(string nomeArquivo, string nomeBanco, T modelo) {
             string query;
             try {
                 query = LeitorArquivos.CarregarArquivoSQL(nomeArquivo);
                 IniciarConexao(nomeBanco);
-                return Conexao.Execute(query, modelo, Transacao) == 1;
+                return Conexao.Execute(query, modelo, Transacao);
             } catch (SqlException) {
                 throw new Exception("Não foi possível realizar a consulta, tente novamente mais tarde.");
             } catch (Exception e) {
                 throw e;
+            }
+            finally
+            {
+                FecharConexao();
             }
         }
     }
