@@ -5,14 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Dominio.Usuario {
-    public class UsuarioDominio : IUsuarioDominio {
-        public UsuarioDominio() {  
+    public class Usuario : IUsuario {
+        public Usuario() {  
         }
 
-        public UsuarioDominio(Guid idUsuario, string nome, string usuario, string senha, string grupo, DateTime dataCriacao, bool ativo, string cpf) {
+        public Usuario(Guid idUsuario, string nome, string usuario, string senha, string grupo, DateTime dataCriacao, bool ativo, string cpf) {
             IdUsuario = idUsuario;
             Nome = nome;
-            Usuario = usuario;
+            UsuarioAplicacao = usuario;
             Senha = senha;
             Grupo = grupo;
             DataCriacao = dataCriacao;
@@ -25,7 +25,7 @@ namespace Dominio.Usuario {
         [Description("NOME")]
         public string Nome { get; set; }
         [Description("USUARIO")]
-        public string Usuario { get; set; }
+        public string UsuarioAplicacao { get; set; }
         [Description("SENHA")]
         public string Senha { get; set; }
         [Description("GRUPO")]
