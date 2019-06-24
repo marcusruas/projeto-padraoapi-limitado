@@ -14,6 +14,7 @@ namespace Comunicacao.ConexaoBanco {
         IEnumerable<T> Select<T>(string nomeArquivo, string nomeBanco);
         T SelectUmaLinha<T>(string nomeArquivo, string nomeBanco);
         int Executar<T>(string nomeArquivo, string nomeBanco, T modelo);
+        string ObterComandoSQL(string nomeArquivo);
 
     }
 }

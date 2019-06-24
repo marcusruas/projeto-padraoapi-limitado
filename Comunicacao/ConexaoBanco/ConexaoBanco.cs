@@ -109,5 +109,10 @@ namespace Comunicacao.ConexaoBanco {
                 FecharConexao();
             }
         }
+
+        public string ObterComandoSQL(string nomeArquivo)
+        {
+            return LeitorArquivos.CarregarArquivoSQL(nomeArquivo);
+        }
     }
 }
