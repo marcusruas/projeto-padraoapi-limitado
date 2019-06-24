@@ -12,4 +12,10 @@
     <ProjectReference Include="..\Comunicacao\Comunicacao.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ConexaoBanco\SQL\selectStatusBanco.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

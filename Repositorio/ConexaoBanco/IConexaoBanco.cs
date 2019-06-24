@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Comunicacao.ConexaoBanco {
+namespace Repositorio.ConexaoBanco {
     public interface IConexaoBanco {
         void IniciarConexao(string nomeBanco);
         void FecharConexao();

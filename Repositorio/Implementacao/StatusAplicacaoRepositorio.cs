@@ -1,4 +1,4 @@
-﻿using Comunicacao.ConexaoBanco;
+﻿using Repositorio.ConexaoBanco;
 using Repositorio.Interface;
 using System;
 using System.Collections.Generic;

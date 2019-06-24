@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Comunicacao.ConexaoBanco {
+namespace Repositorio.ConexaoBanco {
     public class ConexaoBanco : IConexaoBanco{
         private SqlConnection Conexao;
         private SqlTransaction Transacao;

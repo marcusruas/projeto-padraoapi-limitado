@@ -262,3 +262,6 @@ __pycache__/
 
 # Arquivos de conexão
 conexoes.json
+
+#Builds
+Comunicacao/Comunicacao
