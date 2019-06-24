@@ -63,6 +63,27 @@ namespace Comunicacao.ConexaoBanco {
             }
         }
 
+        public T SelectUmaLinha<T>(string nomeArquivo, string nomeBanco)
+        {
+            T resultado;
+            string query;
+            try
+            {
+                query = LeitorArquivos.CarregarArquivoSQL(nomeArquivo);
+                IniciarConexao(nomeBanco);
+                resultado = Conexao.Query<T>(query).FirstOrDefault();
+                return resultado;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Não foi possível realizar a consulta, tente novamente mais tarde.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public bool Executar<T>(string nomeArquivo, string nomeBanco, T modelo) {
             string query;
             try {
