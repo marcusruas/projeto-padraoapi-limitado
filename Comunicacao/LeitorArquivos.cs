@@ -28,13 +28,17 @@ namespace Comunicacao.ConexaoBanco {
         }
 
         public static string ObterStringBanco(string nomeBanco) {
-            string conexoes = Path.Combine(DiretorioArquivosBuild, "conexoes.json");
+            string arquivoConexao = Path.Combine(DiretorioArquivosBuild, "conexoes.json");
+            List<Conexao> conexoes;
             try {
-                using (StreamReader r = new StreamReader(conexoes)) {
+                using (StreamReader r = new StreamReader(arquivoConexao)) {
                     var json = r.ReadToEnd();
-                    var conexao = JsonConvert.DeserializeObject<object>(json);
-                    return json;
+                    conexoes = JsonConvert.DeserializeObject<Conexao[]>(json).ToList();
                 }
+                foreach(var con in conexoes)
+                    if (con.Nome == nomeBanco)
+                        return con.StringConexao;
+                return null;
             }catch(Exception) {
                 throw new Exception("Não foi possível realizar a conexão ao banco de dados.");
             }
