@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace NomeAPI {
+namespace Api {
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;

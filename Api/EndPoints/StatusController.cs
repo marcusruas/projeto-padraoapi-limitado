@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PadraoAPI.EndPoints {
+namespace Api.EndPoints {
     [ApiController]
     [Route("/")]
     public class StatusController : Controller {
